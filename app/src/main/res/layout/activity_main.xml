@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Basic Tip Calculator"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edtBill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:hint="Enter your bill amount"
+            android:inputType="numberDecimal"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <TextView
+            android:id="@+id/tvTipPercentageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="How was the service (Tip %)"
+            android:textColor="#DCEDA2"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtBill" />
+
+        <RadioGroup
+            android:id="@+id/rgTipOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:checkedButton="@id/rbTipTwentyPercent"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTipPercentageTitle">
+
+            <RadioButton
+                android:id="@+id/rbTipTwentyPercent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Amazing (20%)"
+                android:textSize="16sp"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/rbTipFifteenPercent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Good (15%)"
+                android:textSize="16sp"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/rbTipTanPercent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ok (10%)"
+                android:textSize="16sp"
+                android:textColor="@color/white" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvNumberOfPerson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Number of Person"
+            android:textAllCaps="false"
+            android:textColor="#DCEDA2"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rgTipOptions" />
+
+        <Button
+            android:id="@+id/btnPersonPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FAFAFA"
+            android:text="+"
+            android:textColor="#E80808"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/tvNumberOfPerson"
+            app:layout_constraintTop_toBottomOf="@id/tvNumberOfPerson" />
+
+        <Button
+            android:id="@+id/btnPersonMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FAFAFA"
+            android:text="-"
+            android:textColor="#E80808"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNumberOfPerson" />
+
+        <TextView
+            android:id="@+id/tvPersonCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnPersonPlus"
+            app:layout_constraintEnd_toStartOf="@+id/btnPersonMinus"
+            app:layout_constraintStart_toEndOf="@+id/btnPersonPlus"
+            app:layout_constraintTop_toTopOf="@+id/btnPersonPlus" />
+
+        <Button
+            android:id="@+id/btnCalculateTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FAFAFA"
+            android:text="calculate"
+            android:textColor="#E80808"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnPersonMinus" />
+
+        <TextView
+            android:id="@+id/tvTotalTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnCalculateTip" />
+
+        <TextView
+            android:id="@+id/tvTipPerPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalBillPlusTip" />
+
+        <TextView
+            android:id="@+id/tvTotalBillPlusTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalTip" />
+
+        <TextView
+            android:id="@+id/tvTotalPerPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTipPerPerson" />
+
+        <ImageView
+            android:id="@+id/imgCopyTip"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalPerPerson"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imgShareTip"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalPerPerson"
+            tools:ignore="ContentDescription" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
